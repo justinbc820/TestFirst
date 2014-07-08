@@ -1,5 +1,5 @@
 function hello (name) {
-	if(name == "") {
+	if(name == null) {
 		return "Hello!";
 	}
 	else {

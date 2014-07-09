@@ -46,8 +46,13 @@ function paramify(myObject) {
 	var holdingArray = [];
 
 	for(var prop in myObject) {
-		holdingArray.push(prop + "=" + myObject[prop])
+		
+		if(myObject.hasOwnProperty(prop)) {
+			holdingArray.push(prop + "=" + myObject[prop]);
+		};
 	};
+
+	holdingArray.sort();
 
 	for(var i=0; i<holdingArray.length; i++) {
 		myString += holdingArray[i];

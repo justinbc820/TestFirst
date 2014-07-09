@@ -95,12 +95,24 @@ function factorial(number) {
 		return total;
 	}
 	else {
-		for(var i =number; i>0; i--) {
+		for(var i=number; i>0; i--) {
 			total *= i;
 		};
 	};
-	
+
 	return total;
+};
+
+function concat_string() {
+	//create empty string to house each argument
+	var myString = "";
+
+	//loop through all arguments and add each one to the string
+	for(var i=0; i<arguments.length; i++) {
+		myString += arguments[i];
+	};
+
+	return myString;
 };
 
 

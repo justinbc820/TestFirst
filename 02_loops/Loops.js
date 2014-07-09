@@ -6,4 +6,14 @@ function repeat(word, numberOfTimes) {
 	}
 
 	return entireString;
+};
+
+function join(myArray) {
+	var myString = "";
+
+	for(var i=0; i<myArray.length; i++) {
+		myString = myString + myArray[i];
+	}
+
+	return myString;
 }

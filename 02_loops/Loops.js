@@ -84,3 +84,49 @@ function paramify(myObject) {
 
 	return myString;
 }
+
+
+function factorial(number) {
+	//create a holding tank.  Because 0 factorial is 1, we will start this off at one.
+	// also, because we multiply our first number by this number, it has to be one, not 0
+	var total = 1;
+
+	if(number == 0) {
+		return total;
+	}
+	else {
+		for(var i =number; i>0; i--) {
+			total *= i;
+		};
+	};
+	
+	return total;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

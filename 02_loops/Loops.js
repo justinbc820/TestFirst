@@ -8,12 +8,28 @@ function repeat(word, numberOfTimes) {
 	return entireString;
 };
 
-function join(myArray) {
+function join(myArray, delimiter) {
 	var myString = "";
 
-	for(var i=0; i<myArray.length; i++) {
-		myString = myString + myArray[i];
+	if(delimiter == undefined) {
+		for(var i=0; i<myArray.length; i++) {
+			myString = myString + myArray[i];
+		}
+
+		return myString;
+	}
+	else {
+		for(var i=0; i<myArray.length; i++) {
+			myString = myString + myArray[i];
+
+			if(i < myArray.length - 1) {
+				myString = myString + delimiter;
+			}
+		}
+
+		return myString;
 	}
 
-	return myString;
-}
+	
+};
+

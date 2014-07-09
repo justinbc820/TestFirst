@@ -24,12 +24,20 @@ function join(myArray, delimiter) {
 
 			if(i < myArray.length - 1) {
 				myString = myString + delimiter;
-			}
-		}
+			};
+		};
 
 		return myString;
-	}
+	};
+};
 
-	
+function sum(arrayOfNumbers) {
+	var total = 0;
+
+	for(var i=0; i<arrayOfNumbers.length; i++) {
+		total += arrayOfNumbers[i];
+	};
+
+	return total;
 };
 

@@ -41,3 +41,21 @@ function sum(arrayOfNumbers) {
 	return total;
 };
 
+function paramify(myObject) {
+	var myString = "";
+	var holdingArray = [];
+
+	for(var prop in myObject) {
+		holdingArray.push(prop + "=" + myObject[prop])
+	};
+
+	for(var i=0; i<holdingArray.length; i++) {
+		myString += holdingArray[i];
+
+		if(i<holdingArray.length -1) {
+			myString += "&";
+		};
+	};
+
+	return myString;
+}

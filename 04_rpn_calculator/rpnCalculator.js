@@ -1,6 +1,7 @@
 function Calculator() {
 	var myArray = [];
 	var total = 0;
+	var errorMessage = "calculator is empty";
 
 	this.push = function(number) {
 		myArray.push(number);
@@ -9,6 +10,11 @@ function Calculator() {
 	};
 
 	this.plus = function() {
+
+		if(myArray.length == 0) {
+			throw errorMessage;
+		};
+
 		var tempSum = 0;
 
 		for(var i=0; i<2; i++) {
@@ -24,10 +30,14 @@ function Calculator() {
 		else {
 			total += tempSum;
 			return myArray;
-		}
+		};
 	};
 
 	this.minus = function() {
+		if(myArray.length == 0) {
+			throw errorMessage;
+		};
+
 		var tempSum = myArray.pop();
 		var finalSum = myArray.pop() - tempSum;
 
@@ -44,6 +54,10 @@ function Calculator() {
 	};
 
 	this.divide = function() {
+		if(myArray.length == 0) {
+			throw errorMessage;
+		};
+
 		var tempNumber = myArray.pop();
 		var finalNumber = myArray.pop() / tempNumber;
 
@@ -60,6 +74,10 @@ function Calculator() {
 	};
 
 	this.times = function() {
+		if(myArray.length == 0) {
+			throw errorMessage;
+		};
+		
 		var tempNumber = myArray.pop();
 		var finalNumber = myArray.pop() * tempNumber;
 

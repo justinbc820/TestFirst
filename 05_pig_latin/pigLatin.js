@@ -7,7 +7,9 @@ function translate(word) {
 	wordsArray = [];
 	nextSpacePosition = 0;
 	needsToBeSplit(word);
-	console.log(wordsArray);
+	convertWords(wordsArray);
+	console.log(finalWord);
+	return finalWord;
 }
 
 function putIntoArray(word) {
@@ -37,31 +39,64 @@ function takeFirstWord(word) {
 	}
 }
 
+function convertWords(wordsArray) {
+	finalWord = "";
+	for(var i=0; i<wordsArray.length; i++) {
+		var beginningConsonants = howManyConsonants(wordsArray[i]);
+		var firstLetter;
+		var remainingWord;
+
+
+		if(beginningConsonants == 0) {
+			if(i < wordsArray.length-1) {
+				finalWord += wordsArray[i] + "ay ";
+			}
+			else {
+				finalWord += wordsArray[i] + "ay";
+			}
+			
+		}
+		else {
+			firstLetter = wordsArray[i].slice(0, beginningConsonants);
+			remainingWord = wordsArray[i].slice(beginningConsonants);
+			if(i < wordsArray.length-1) {
+				finalWord += remainingWord + firstLetter + "ay ";
+			}
+			else {
+				finalWord += remainingWord + firstLetter + "ay";
+			}
+			
+		}
+	}
+}
+
+function howManyConsonants(currentWord) {
+	var beginningConsonants = 0;
+	var currentLetter;
+	for(var i=0; i<currentWord.length; i++) {
+		currentLetter = currentWord.charAt(i);
+		if(currentLetter == "a" || currentLetter == "e" || currentLetter == "i" || currentLetter == "o" || currentLetter == "u") {
+			return beginningConsonants;
+		}
+		else {
+			beginningConsonants++;
+		}
+	}
+	return beginningConsonants;
+}
 
 
 
 
-	//Does it have multiple words?
-		//Yes
-			//Make array with one word per entry
-			//Check Words
-		//No
-			//Check Words
 
-	//Check Words
-		//Does it contain "qu"
-			//Yes
-				//Is it at the beginning?
-					//Yes - Count qu as one letter then translate
-					//No -
-			//No
-		//Does it begin with a vowel or consonant?
-			//Vowel- Translate
-			//Consonant - Does it begin with one, two, or three consonants?
-				//One - Translate
-				//Two - 
-					//Make first two consonants one word
-					//Translate
-				//Three -
-					//Make first three consonants one word
-					//Translate
+
+
+
+
+
+
+
+
+
+
+

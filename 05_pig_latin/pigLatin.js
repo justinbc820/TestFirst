@@ -1,13 +1,23 @@
 var finalWord = "";
 var wordsArray =[];
 var nextSpacePosition;
+var currentSpecCounter = 0;
+var qInWord;
+var qWordHolder = {
+	qWord:"",
+	qPlaceInSentence:0,
+};
 
 function translate(word) {
 	finalWord = word;
 	wordsArray = [];
 	nextSpacePosition = 0;
 	needsToBeSplit(word);
+	containsQ(wordsArray);
 	convertWords(wordsArray);
+	if(qInWord) {
+		//add splice to put new word back into array
+	}
 	console.log(finalWord);
 	return finalWord;
 }
@@ -54,7 +64,7 @@ function convertWords(wordsArray) {
 			else {
 				finalWord += wordsArray[i] + "ay";
 			}
-			
+
 		}
 		else {
 			firstLetter = wordsArray[i].slice(0, beginningConsonants);
@@ -65,9 +75,13 @@ function convertWords(wordsArray) {
 			else {
 				finalWord += remainingWord + firstLetter + "ay";
 			}
-			
+
 		}
 	}
+}
+
+function concatenate() {
+	
 }
 
 function howManyConsonants(currentWord) {
@@ -85,18 +99,22 @@ function howManyConsonants(currentWord) {
 	return beginningConsonants;
 }
 
+function containsQ(wordsArray) {
+	qInWord = false;
+	for(var i=0; i<wordsArray.length; i++) {
+		for(var j=0; j<wordsArray[i].length; j++) {
+			if(wordsArray[i][j] == "q") {
+				qInWord = true;
+				dealWithQs(wordsArray[i],i,j);
+			}
+		}
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function dealWithQs(word, wordNumber, letter) {
+	qWordHolder.qWord = word;
+	qWordHolder.qPlaceInSentence = wordNumber;
+	wordsArray.splice(wordNumber,1);
+	//convert the words to pigLatin
+	console.log(wordsArray);
+}

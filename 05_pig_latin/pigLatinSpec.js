@@ -57,6 +57,11 @@ describe("translate", function() {
     expect(s).toEqual("ethay ickquay ownbray oxfay");
   });
 
+  it("translates my new sentence", function() {
+    var s = translate("I think that I will go for a fine stroll today in the park");
+    expect(s).toEqual("Iay inkthay atthay Iay illway ogay orfay aay inefay ollstray odaytay inay ethay arkpay");
+  });
+
   // Test-driving bonus:
   // * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   // * retain the punctuation from the original phrase
